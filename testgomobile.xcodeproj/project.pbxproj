@@ -16,10 +16,10 @@
 		5DF1F8A11D92E0700076D19B /* testgomobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1F8A01D92E0700076D19B /* testgomobileTests.m */; };
 		5DF1F8D31D94394B0076D19B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1F8D21D94394B0076D19B /* MapKit.framework */; };
 		5DF1F8E21D9448220076D19B /* NBGeoDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1F8E11D9448220076D19B /* NBGeoDB.m */; };
-		5DF1F8E61D944B910076D19B /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1F8E51D944B910076D19B /* Mobile.framework */; };
-		5DF1F8E71D9481450076D19B /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1F8E51D944B910076D19B /* Mobile.framework */; };
 		5DF1F8E91D94861E0076D19B /* region.db in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1F8E81D94861E0076D19B /* region.db */; };
 		5DF1F8EA1D94861E0076D19B /* region.db in Resources */ = {isa = PBXBuildFile; fileRef = 5DF1F8E81D94861E0076D19B /* region.db */; };
+		5DF1F8EC1D955B060076D19B /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1F8EB1D955B060076D19B /* Mobile.framework */; };
+		5DF1F8ED1D955B060076D19B /* Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF1F8EB1D955B060076D19B /* Mobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		5DF1F8D21D94394B0076D19B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5DF1F8E01D9448220076D19B /* NBGeoDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBGeoDB.h; sourceTree = "<group>"; };
 		5DF1F8E11D9448220076D19B /* NBGeoDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBGeoDB.m; sourceTree = "<group>"; };
-		5DF1F8E51D944B910076D19B /* Mobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mobile.framework; sourceTree = "<group>"; };
 		5DF1F8E81D94861E0076D19B /* region.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = region.db; sourceTree = "<group>"; };
+		5DF1F8EB1D955B060076D19B /* Mobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF1F8E61D944B910076D19B /* Mobile.framework in Frameworks */,
+				5DF1F8EC1D955B060076D19B /* Mobile.framework in Frameworks */,
 				5DF1F8D31D94394B0076D19B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF1F8E71D9481450076D19B /* Mobile.framework in Frameworks */,
+				5DF1F8ED1D955B060076D19B /* Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 		5DF1F8851D92E0700076D19B /* testgomobile */ = {
 			isa = PBXGroup;
 			children = (
-				5DF1F8E51D944B910076D19B /* Mobile.framework */,
+				5DF1F8EB1D955B060076D19B /* Mobile.framework */,
 				5DF1F8891D92E0700076D19B /* AppDelegate.h */,
 				5DF1F88A1D92E0700076D19B /* AppDelegate.m */,
 				5DF1F88C1D92E0700076D19B /* ViewController.h */,
