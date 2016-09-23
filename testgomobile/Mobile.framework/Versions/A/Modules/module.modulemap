@@ -1,0 +1,7 @@
+framework module "Mobile" {
+    header "GoMobile.h"
+    header "GoUniverse.h"
+    header "Mobile.h"
+
+    export *
+}

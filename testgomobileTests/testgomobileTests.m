@@ -7,32 +7,61 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <Mobile/Mobile.h>
 
 @interface testgomobileTests : XCTestCase
-
+@property(strong) GoMobileGeoDB *db;
 @end
 
 @implementation testgomobileTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    GoMobileGeoDB *db = GoMobileNewGeoDB();
+    NSString *resourcePath = [[NSBundle mainBundle] pathForResource:@"region" ofType:@"db"];
+    NSLog(@"opened db at %@", resourcePath);
+
+    NSError *error;
+    [db openDB:resourcePath error:&error];
+    if (error != nil) {
+        NSLog(@"error opening db %@", [error localizedDescription]);
+    } else {
+        NSLog(@"opened db at %@", resourcePath);
+    }
+    XCTAssertNil(error);
+    self.db = db;
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    [self.db close:nil];
+    self.db = nil;
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testDB {
+    GoMobileFence *fence = [self.db queryHandler:48.2 lng:2.2];
+    XCTAssertNotNil(fence);
+    XCTAssertEqualObjects(@"FR", fence.iso);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+
+- (void)testSpeedMissing {
+      [self measureBlock:^{
+        for (int i=0;i<60000;i++) {
+            GoMobileFence *fence = [self.db queryHandler:34 lng:34];
+            XCTAssertNil(fence);
+        }
+    }];
+}
+
+- (void)testSpeedInFence {
+       [self measureBlock:^{
+        for (int i=0;i<4000;i++) {
+            GoMobileFence *fence = [self.db queryHandler:49.214439 lng:-2.131250];
+            XCTAssertNotNil(fence);
+            XCTAssertEqualObjects(@"JE", fence.iso);
+        }
     }];
 }
 
