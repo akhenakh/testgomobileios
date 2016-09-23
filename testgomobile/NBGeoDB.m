@@ -15,6 +15,8 @@
 
 @implementation NBGeoDB
 
+// NBGeoDB is a simple singleton to access the database only one time for the whole app
+// using a singleton is not directly related to Go mobile
 + (id)sharedGeoDB {
     static NBGeoDB *sharedGeoDB = nil;
     static dispatch_once_t onceToken;

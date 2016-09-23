@@ -43,6 +43,7 @@
 }
 
 - (void) displayRegion {
+    // clear the map
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView removeOverlays:self.mapView.overlays];
     
@@ -105,6 +106,7 @@
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    // render the polygon
     MKPolygonRenderer *polyRenderer = [[MKPolygonRenderer alloc] initWithPolygon:overlay];
     
     polyRenderer.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.2];
@@ -119,13 +121,16 @@
 }
 
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer {
+    // handle the one tap gesture
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
         return;
     
+    // convert the screen tap to map coordinates
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D c =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
+    // query the database
     NBGeoDB *db = [NBGeoDB sharedGeoDB];
     GoMobileFence *fence = [db.gf queryHandler:c.latitude lng:c.longitude];
     self.currentFence = fence;
